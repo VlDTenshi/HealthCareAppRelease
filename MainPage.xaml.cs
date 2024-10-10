@@ -1,24 +1,27 @@
-﻿namespace HealthCare
+﻿using HealthCare.MVVM.Views;
+
+namespace HealthCare
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void SignUp_Clicked(object sender, EventArgs e)
         {
-            count++;
+            await Shell.Current.GoToAsync(nameof(SignInPage));
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private async void SignIn_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(SignUpPage));
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void Without_log_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(HomeNavigationPage));
         }
     }
 

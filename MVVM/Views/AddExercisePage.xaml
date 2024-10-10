@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.MVVM.Views.AddExercisePage"
+             Title="Add Exercise">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="SlateGray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout Margin="10">
+        <VerticalStackLayout>
+            <Label Text="Name" FontSize="14"/>
+            <Entry Text="{Binding ExerciseDetails.Name}" Placeholder="Name"/>
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout>
+            <Label Text="Decription" FontSize="14"/>
+            <Entry Text="{Binding ExerciseDetails.Description}" Placeholder="Description"/>
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout>
+            <Label Text="Repetition" FontSize="14"/>
+            <Entry Text="{Binding ExerciseDetails.Repetition}" Placeholder="Repetition"/>
+        </VerticalStackLayout>
+
+        <Button Command="{Binding AddExerciseCommand}" Text="Save Exercise Details"/>
+    </StackLayout>
+</ContentPage>

@@ -4,12 +4,100 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HealthCare"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:view="clr-namespace:HealthCare.MVVM.Views"
+    xmlns:model="clr-namespace:HealthCare.MVVM.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.FlyoutBehavior="Flyout"
     Title="HealthCare">
 
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                                   StatusBarStyle="LightContent"/>
+    </Shell.Behaviors>
     <ShellContent
-        Title="Home"
+        Title="Main Page"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <FlyoutItem FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+        Shell.NavBarIsVisible="True"
+        Shell.FlyoutItemIsVisible="True"
+        Title="Health"
+        Icon="{x:Static model:Icon.Health}"
+        ContentTemplate="{DataTemplate view:HomeNavigationPage}"
+        Route="HomeNavigationPage" 
+        />
+        <ShellContent
+        Shell.NavBarIsVisible="True"
+        Shell.FlyoutItemIsVisible="True"
+        Title="Medicine"
+        Icon="{x:Static model:Icon.Medicine}"
+        ContentTemplate="{DataTemplate view:MedicinesPage}"
+        Route="MedicinesPage" 
+        />
+        <ShellContent
+        Shell.NavBarIsVisible="True"
+        Shell.FlyoutItemIsVisible="True"
+        Title="Contact"
+        Icon="{x:Static model:Icon.Contact}"
+        ContentTemplate="{DataTemplate view:ContactsPage}"
+        Route="ContactsPage" 
+        />
+        <ShellContent
+        Shell.NavBarIsVisible="True"
+        Shell.FlyoutItemIsVisible="True"
+        Title="Hospital"
+        Icon="{x:Static model:Icon.Hospital}"
+        ContentTemplate="{DataTemplate view:HospitalsPage}"
+        Route="HospitalsPage" 
+        />
+        <ShellContent
+        Shell.NavBarIsVisible="True"
+        Shell.FlyoutItemIsVisible="True"
+        Title="Exercise"
+        Icon="{x:Static model:Icon.Exercise}"
+        ContentTemplate="{DataTemplate view:ExercisesPage}"
+        Route="ExercisesPage" 
+        />
+    </FlyoutItem>
+    <MenuItem Text="Sign out"
+           IconImageSource="exit"
+           Clicked="SignOutMenuItem_Clicked"
+           />
+    <Shell.FlyoutHeader>
+        <Border BackgroundColor="{StaticResource Primary}"
+            Padding="10"
+            StrokeThickness="0">
+            <VerticalStackLayout HorizontalOptions="Center"
+                             Spacing="10">
+                <Image Source="loading_image"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"/>
+                <Label Text="HealthNess"
+                   HorizontalOptions="Center"
+                   FontSize="18"
+                   TextColor="White"
+                   TextTransform="Uppercase"
+                   FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutFooter>
+        <Border BackgroundColor="{StaticResource Primary}"
+            StrokeThickness="0"
+            Padding="10">
+            <Label Text="Developed by Vladimir Dudakov"
+               TextColor="White"
+               HorizontalOptions="Center"
+               FontSize="15"
+               FontAttributes="Bold"/>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Border.GestureRecognizers>
+        </Border>
+    </Shell.FlyoutFooter>
 </Shell>

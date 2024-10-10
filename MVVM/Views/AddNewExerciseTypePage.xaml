@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.MVVM.Views.AddNewExerciseTypePage"
+             Title="Add New Exercise Type">
+    <StackLayout Margin="10">
+        <VerticalStackLayout>
+            <Label 
+            Text="ExerciseType Name"
+            FontSize="18" />
+        <Entry Text="{Binding ExerciseTypeDetails.TypeName }" Placeholder="ExerciseType Name"/>
+        </VerticalStackLayout>
+        <Button Command="{Binding AddNewExerciseTypeCommand}" Text="Save ExerciseType"/>
+    </StackLayout>
+</ContentPage>

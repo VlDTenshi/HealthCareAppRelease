@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.MVVM.Views.AddNewExerciseLocationTypePage"
+             Title="Add New Exercise-Location-Type Page">
+    <StackLayout Margin="10">
+        <VerticalStackLayout>
+            <Label 
+        Text="ExerciseLocationType Name"
+        FontSize="18" />
+            <Entry Text="{Binding ExerciselocationtypeDetails.TypeName }" Placeholder="ExerciseLocationType Name"/>
+        </VerticalStackLayout>
+        <Button Command="{Binding AddNewExerciseLocationTypeCommand}" Text="Save ExerciseLocationType"/>
+    </StackLayout>
+</ContentPage>
